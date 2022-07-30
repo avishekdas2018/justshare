@@ -7,16 +7,16 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static('public'));
 
-
-const connectDB = require('./config/db');
-connectDB();
-
 // Cors settings
 const corsOption = {
     origin: [process.env.ALLOWED_CLIENT]
 }
 
-app.use(cors(corsOption));
+app.use(cors());
+
+const connectDB = require('./config/db');
+connectDB();
+
 
 // Templete Engine
 app.set('views', path.join(__dirname, '/views'));
