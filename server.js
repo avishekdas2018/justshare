@@ -13,7 +13,7 @@ connectDB();
 
 // Cors settings
 const corsOption = {
-    origin: process.env.ALLOWED_CLIENT
+    origin: [process.env.ALLOWED_CLIENT]
 }
 
 app.use(cors(corsOption));
