@@ -21,3 +21,4 @@ async function deleteData() {
 }
 
 deleteData().then(process.exit);
+
