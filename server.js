@@ -37,7 +37,7 @@ app.listen(PORT, () => {
 }) 
 
 
-const autoDelete = schedule.scheduleJob('* * * * * *', async () => {
+const autoDelete = schedule.scheduleJob('0 2 * * *', async () => {
     const pastDate = new Date(Date.now() - (24 * 60 * 60 * 1000));
     const files = await File.find( { createdAt: { $lt: pastDate }} );
     if(files.length) {
