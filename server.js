@@ -37,8 +37,8 @@ app.listen(PORT, () => {
 }) 
 
 
-const autoDelete = schedule.scheduleJob('* * * * * *', async () => {
-    const files = await File.find({ createdAt : { $lt: new Date(Date.now() - 10 * 60 * 1000)} })
+const autoDelete = schedule.scheduleJob('0 2 * * *', async () => {
+    const files = await File.find({ createdAt : { $lt: new Date(Date.now() - 24 * 60 * 60 * 1000)} })
     if(files.length) {
         for(const file of files) {
             try {
@@ -52,5 +52,4 @@ const autoDelete = schedule.scheduleJob('* * * * * *', async () => {
         console.log('Job done!');
     }
 });
-
 process.exit(autoDelete);
