@@ -51,5 +51,6 @@ const autoDelete = schedule.scheduleJob('* * * * * *', async () => {
         }
         console.log('Job done!');
     }
-    process.exit(autoDelete);
 });
+
+process.exit(autoDelete);
